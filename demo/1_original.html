@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>1. Original, not optimized images</title>
+    <link rel="stylesheet" href="/assets/imgplayer.css" />
+  </head>
+
+  <body>
+    <div id="imageplayer"></div>
+    
+    <div id="network"></div>
+    <div id="performance">Loading...</div>
+
+    <script src="/assets/jquery.min.js"></script>
+    <script src="/assets/imgplayer.js"></script>
+    <script src="/assets/measure.performance.js"></script>
+
+    <script type="text/javascript">
+      ($ => {
+        $(document).ready(function() {
+          const url = '/assets/400_jpeg_90_no_optim/img{num}.jpg';
+
+          $('#imageplayer')
+            .imgplay({
+              totalImages: 272,
+              imageName: 'img{num}.jpg',
+              urlDir: url,
+              rate: 30,
+              height: 400,
+              width: 400,
+              autoPlay: true
+            })
+            .on('firstimgloaded', (event, plugin) => {})
+            .on('play', (event, plugin) => {})
+            .on('pause', (event, plugin) => {})
+            .on('stop', (event, plugin) => {});
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>
